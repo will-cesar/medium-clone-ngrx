@@ -1,2 +1,8 @@
-# medium-clone-ngrx
-App medium clone using NgRx
+# Medium Clone App
+
+> Medium clone app using Angular 12 and NgRx</br>  
+> Tutorial link: https://www.udemy.com/course/angular-and-ngrx-building-real-project-from-scratch/
+
+## About
+
+> Course to learn about NgRx
