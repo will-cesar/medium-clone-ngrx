@@ -25,6 +25,18 @@
 - Reducer
   - é o gerenciador das actions
   - captura a "Action" para fazer uma mutação no store
+  - createReducer:
+    - sempre é necessário passar um estado inicial e as ações daquele reducer
+    - operador "on"
+      - ele diz quando a Action acontece
+
+- passo a passo para criação
+  - criar uma Action
+  - criar o Reducer que irá receber essa Action e fazer as modificações do estado]
+  - dentro do módulo onde se encontra a manipulação do estado, colocar declarar o "StoreModule.forFeature()"
+    - o primeiro parâmetro é o nome do state
+    - o segundo é o Reducer
+      - nesse caso a função que exporta todos os reducers
 
 ## Métodos
 
