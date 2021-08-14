@@ -17,6 +17,7 @@
   - sempre que um componente precise de algumal informação, ele deve consultar o store
 
 - Selector
+  - é uma função de ajuda a criar um get do estado
   - permite fazer consultas na aplicação de forma customizada
 
 - Action
