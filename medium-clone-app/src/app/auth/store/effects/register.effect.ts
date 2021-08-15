@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {createEffect, ofType, Actions} from '@ngrx/effects';
 import {map, catchError, switchMap} from 'rxjs/operators';
+import {HttpErrorResponse} from '@angular/common/http';
 import {of} from 'rxjs';
 
 import {CurrentUserInterface} from 'src/app/shared/types/current-user.interface';
@@ -22,8 +23,10 @@ export class RegisterEffect {
             return registerSuccessAction({currentUser});
           }),
 
-          catchError(() => {
-            return of(registerFailureAction());
+          catchError((errorResponse: HttpErrorResponse) => {
+            return of(
+              registerFailureAction({errors: errorResponse.error.errors})
+            );
           })
         );
       })
