@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {createEffect, ofType, Actions} from '@ngrx/effects';
-import {map, catchError, switchMap, tap} from 'rxjs/operators';
+import {map, catchError, switchMap} from 'rxjs/operators';
 import {of} from 'rxjs';
 
 import {FeedService} from '../../services/feed.service';
@@ -13,7 +13,7 @@ import {GetFeedResponseInterface} from '../../types/get-feed-response.interface'
 
 @Injectable()
 export class GetFeedEffect {
-  getCurrentUser$ = createEffect(() =>
+  getFeed$ = createEffect(() =>
     this.actions$.pipe(
       ofType(getFeedAction),
       switchMap(({url}) => {

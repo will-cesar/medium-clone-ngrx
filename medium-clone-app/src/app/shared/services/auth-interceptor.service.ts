@@ -10,7 +10,7 @@ import {Observable} from 'rxjs';
 import {PersistanceService} from './persistance.service';
 
 @Injectable()
-export class AuthInterceptorService implements HttpInterceptor {
+export class AuthInterceptor implements HttpInterceptor {
   constructor(private persistanceService: PersistanceService) {}
 
   intercept(
@@ -18,7 +18,6 @@ export class AuthInterceptorService implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
     const token = this.persistanceService.get('accessToken');
-
     request = request.clone({
       setHeaders: {
         Authorization: token ? `Token ${token}` : '',

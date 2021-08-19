@@ -1,4 +1,4 @@
-import {Action, createReducer, on} from '@ngrx/store';
+import {createReducer, on, Action} from '@ngrx/store';
 
 import {FeedStateInterface} from '../types/feed-state.interface';
 import {

@@ -11,7 +11,7 @@ import {AppComponent} from './app.component';
 import {AuthModule} from './auth/auth.module';
 import {GlobalFeedModule} from './global-feed/global-feed.module';
 import {TopBarModule} from './shared/modules/top-bar/top-bar.module';
-import {AuthInterceptorService} from './shared/services/auth-interceptor.service';
+import {AuthInterceptor} from './shared/services/auth-interceptor.service';
 import {PersistanceService} from './shared/services/persistance.service';
 
 @NgModule({
@@ -23,8 +23,8 @@ import {PersistanceService} from './shared/services/persistance.service';
     AuthModule,
     StoreModule.forRoot({}),
     StoreDevtoolsModule.instrument({
-      maxAge: 25, // Retains last 25 states
-      logOnly: environment.production, // Restrict extension to log-only mode
+      maxAge: 25,
+      logOnly: environment.production,
     }),
     EffectsModule.forRoot([]),
     TopBarModule,
@@ -34,7 +34,7 @@ import {PersistanceService} from './shared/services/persistance.service';
     PersistanceService,
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: AuthInterceptorService,
+      useClass: AuthInterceptor,
       multi: true,
     },
   ],
